@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 const Products = ({ productsPromise }) => {
 
     const products = use(productsPromise);
-    console.log(products);
+    // console.log(products);
 
     return (
         <section className="py-12 mt-15 bg-gray-50">
