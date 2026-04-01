@@ -7,7 +7,7 @@ const Banner = () => {
     return (
         <section className="bg-gray-100 py-12 lg:py-20">
 
-            <div className="w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
                 {/* Left Content */}
                 <div id="left-content" className="space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
