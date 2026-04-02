@@ -3,7 +3,7 @@ import React, { use } from 'react';
 const Steps = ({ stepsPromise }) => {
 
     const steps = use(stepsPromise);
-    console.log(steps);
+    // console.log(steps);
 
 
     return (
@@ -22,8 +22,8 @@ const Steps = ({ stepsPromise }) => {
                 {
                     steps.map(step => <div key={step.stepNumber} className="bg-white rounded-xl shadow-md p-6 text-center flex flex-col items-center space-y-4">
                         {/* Step Number */}
-                        <div className=''>
-                            <p className=' font-bold bg-linear-to-t from-[#4F39F6] to-[#9514FA] text-white p-2 rounded-full h-10 w-10 items-center'>{step.stepNumber}</p>
+                        <div className='relative mb-18'>
+                            <p className='absolute -top-3 -right-40 bg-linear-to-t from-[#4F39F6] to-[#9514FA] text-white font-bold text-xs w-8 h-8 flex items-center justify-center rounded-full'>{step.stepNumber}</p>
                         </div>
                         <div>
                             <img src={step.icon} alt="" />
