@@ -7,6 +7,7 @@ import Stats from './components/Stats'
 import { Heading3 } from 'lucide-react'
 import Steps from './components/Steps'
 import Pricing from './components/Pricing'
+import FreeTrial from './components/FreeTrial'
 
 const getProducts = async () => {
   const res = await fetch("/products.json")
@@ -50,6 +51,8 @@ function App() {
       <Suspense fallback={<h3>Loading...</h3>}>
         <Pricing pricePromise={pricePromise}></Pricing>
       </Suspense>
+
+      <FreeTrial></FreeTrial>
     </>
   )
 }
