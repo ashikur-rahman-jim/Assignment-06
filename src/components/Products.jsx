@@ -26,7 +26,7 @@ const Products = ({ productsPromise }) => {
             {/* Products */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-8">
                 {
-                    products.map( product => <div key={product.id}>
+                    products.map(product => <div key={product.id}>
                         <div className="bg-white rounded-xl shadow-md p-6 flex flex-col justify-between">
 
                             {/* Tag + Icon */}
@@ -42,23 +42,17 @@ const Products = ({ productsPromise }) => {
                             {/* Price */}
                             <div className='flex items-center mt-4'>
                                 <p className="text-lg font-semibold text-[#101727]">{'$' + product.price}</p>
-                            <p className='text-sm text-[#627382]'>{'/' + product.period}</p>
+                                <p className='text-sm text-[#627382]'>{'/' + product.period}</p>
                             </div>
 
                             {/* Features */}
                             <div className="mt-4 space-y-2">
-                                <p className="flex items-center text-[#627382] font-medium">
-                                    <Check className='text-[#30B868]' />
-                                    {product.features[0]}
-                                </p>
-                                <p className="flex items-center text-[#627382] font-medium">
-                                    <Check className='text-[#30B868]' />
-                                    {product.features[1]}
-                                </p>
-                                <p className="flex items-center text-[#627382] font-medium">
-                                    <Check className='text-[#30B868]' />
-                                    {product.features[2]}
-                                </p>
+                                {product.features.map((feature, index) => (
+                                        <p key={index} className="flex items-center text-[#627382] font-medium gap-2">
+                                            <Check className="w-4 h-4 text-[#30B868]" />
+                                            {feature}
+                                        </p>
+                                    ))}
                             </div>
 
                             {/* Button */}

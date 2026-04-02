@@ -8,6 +8,7 @@ import { Heading3 } from 'lucide-react'
 import Steps from './components/Steps'
 import Pricing from './components/Pricing'
 import FreeTrial from './components/FreeTrial'
+import Footer from './components/Footer'
 
 const getProducts = async () => {
   const res = await fetch("/products.json")
@@ -37,7 +38,9 @@ function App() {
   return (
     <>
       <NavBar></NavBar>
+
       <Banner></Banner>
+      
       <Stats></Stats>
 
       <Suspense fallback={<h3>Loading...</h3>}>
@@ -53,6 +56,8 @@ function App() {
       </Suspense>
 
       <FreeTrial></FreeTrial>
+
+      <Footer></Footer>
     </>
   )
 }
