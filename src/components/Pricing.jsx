@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 const Pricing = ({ pricePromise }) => {
 
     const pricing = use(pricePromise);
-    console.log(pricing);
+    // console.log(pricing);
 
     return (
         <section className="py-12 mt-15 bg-gray-50">

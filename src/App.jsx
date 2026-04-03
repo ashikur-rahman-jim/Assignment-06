@@ -1,14 +1,15 @@
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import './App.css'
 import Banner from './components/Banner'
 import NavBar from './components/NavBar'
 import Products from './components/Products'
 import Stats from './components/Stats'
-import { Heading3 } from 'lucide-react'
 import Steps from './components/Steps'
 import Pricing from './components/Pricing'
 import FreeTrial from './components/FreeTrial'
 import Footer from './components/Footer'
+import Tabs from './components/Tabs'
+import Cart from './components/Cart'
 
 const getProducts = async () => {
   const res = await fetch("/products.json")
@@ -25,27 +26,37 @@ const getPrice = async () => {
   return res.json();
 }
 
+const productsPromise = getProducts();
+
+const stepsPromise = getSteps();
+
+const pricePromise = getPrice();
+
 
 
 function App() {
-  
-  const productsPromise = getProducts();
 
-  const stepsPromise = getSteps();
+  const [activeTab, setActiveTab] = useState("products");
 
-  const pricePromise = getPrice();
+  const [carts, setCarts] = useState([])
+  // console.log(carts);
+
 
   return (
     <>
       <NavBar></NavBar>
 
       <Banner></Banner>
-      
+
       <Stats></Stats>
 
-      <Suspense fallback={<h3>Loading...</h3>}>
-        <Products productsPromise={productsPromise}></Products>
-      </Suspense>
+      <Tabs setActiveTab={setActiveTab}></Tabs>
+
+      {activeTab === "products" ? <Suspense fallback={<h3>Loading...</h3>}>
+        <Products productsPromise={productsPromise} carts={carts} setCarts={setCarts}></Products>
+      </Suspense> : null}
+
+      {activeTab === "cart" ? <Cart carts={carts}></Cart> : null}
 
       <Suspense fallback={<h3>Loading...</h3>}>
         <Steps stepsPromise={stepsPromise}></Steps>
@@ -58,6 +69,7 @@ function App() {
       <FreeTrial></FreeTrial>
 
       <Footer></Footer>
+
     </>
   )
 }

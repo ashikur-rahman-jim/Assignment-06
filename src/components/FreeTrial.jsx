@@ -12,9 +12,9 @@ const FreeTrial = () => {
 
                 {/* Buttons */}
                 <div className='flex gap-4 flex-wrap justify-center'>
-                    <button className='bg-white font-semibold text-[#9514FA] px-5 py-2 rounded-full hover:cursor-pointer'>Explore Products</button>
+                    <button type='button' className='bg-white font-semibold text-[#9514FA] px-5 py-2 rounded-full hover:cursor-pointer'>Explore Products</button>
 
-                    <button className='font-semibold text-white border border-white px-5 py-2 rounded-full hover:cursor-pointer bg-transparent'>View Pricing</button>
+                    <button type='button' className='font-semibold text-white border border-white px-5 py-2 rounded-full hover:cursor-pointer bg-transparent'>View Pricing</button>
                 </div>
 
                 {/* Message */}
