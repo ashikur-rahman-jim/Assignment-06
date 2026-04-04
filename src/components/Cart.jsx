@@ -2,6 +2,10 @@ import React from 'react';
 
 const Cart = ({ carts }) => {
     console.log(carts)
+
+    const totalPrice = carts.reduce((sum, item) => sum + item.price, 0)
+    console.log(totalPrice);
+
     return (
         <section className="bg-gray-50 py-12">
             <div className="container mx-auto px-4 max-w-2xl bg-white rounded-xl shadow-md p-6">
@@ -30,7 +34,7 @@ const Cart = ({ carts }) => {
                 {/* Total */}
                 <div className="flex justify-between items-center mt-6">
                     <p className="text-[#627382]">Total</p>
-                    <p className="text-lg font-bold text-[#101727]">$</p>
+                    <p className="text-lg font-bold text-[#101727]">$ {totalPrice}</p>
                 </div>
 
                 {/* Checkout Button */}
