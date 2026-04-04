@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Check } from 'lucide-react';
+import { toast } from 'react-toastify';
 
 const ProductsCard = ({ product, carts, setCarts }) => {
 
@@ -9,6 +10,7 @@ const ProductsCard = ({ product, carts, setCarts }) => {
         if (!isSubscribed) {
         setIsSubscribed(true);
         setCarts([...carts, product]);
+        toast.success("Item add to card")
     }
     }
 
