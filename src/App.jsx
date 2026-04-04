@@ -56,7 +56,7 @@ function App() {
         <Products productsPromise={productsPromise} carts={carts} setCarts={setCarts}></Products>
       </Suspense> : null}
 
-      {activeTab === "cart" ? <Cart carts={carts}></Cart> : null}
+      {activeTab === "cart" ? <Cart carts={carts} setCarts={setCarts}></Cart> : null}
 
       <Suspense fallback={<h3>Loading...</h3>}>
         <Steps stepsPromise={stepsPromise}></Steps>
