@@ -1,10 +1,16 @@
 import React from 'react';
 
 const Cart = ({ carts, setCarts }) => {
-    console.log(carts)
+    // console.log(carts)
 
     const totalPrice = carts.reduce((sum, item) => sum + item.price, 0)
-    console.log(totalPrice);
+    // console.log(totalPrice);
+
+    const handelDelete = (cart) => {
+        // console.log(cart)
+        const filterArray = carts.filter(c => c.id !== cart.id);
+        setCarts(filterArray);
+    }
 
     return (
         <section className="bg-gray-50 py-12">
@@ -29,7 +35,7 @@ const Cart = ({ carts, setCarts }) => {
                                     </div>
 
                                     {/* Remove */}
-                                    <button className="text-sm text-red-500 hover:cursor-pointer">Remove</button>
+                                    <button onClick={() => handelDelete(cart)} className="text-sm text-red-500 hover:cursor-pointer">Remove</button>
                                 </div>
                             ))}
                         </div>

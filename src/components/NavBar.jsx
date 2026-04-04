@@ -1,10 +1,10 @@
 import React from 'react';
 import cartImg from '../hero-assets/products/shopping-cart.png';
 
-const NavBar = () => {
+const NavBar = ({ carts }) => {
     return (
         <nav className="">
-            <div className="navbar bg-base-100 shadow-sm container mx-auto px-4">
+            <div className="navbar bg-base-100 shadow-sm container mx-auto px-2 md:px-4">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -20,7 +20,7 @@ const NavBar = () => {
                             <li><a>FAQ</a></li>
                         </ul>
                     </div>
-                    <h3 className="btn btn-ghost text-2xl md:text-3xl bg-linear-to-t from-[#4F39F6] to-[#9514FA] bg-clip-text text-transparent">DigiTools</h3>
+                    <h3 className="btn btn-ghost text-xl md:text-3xl bg-linear-to-t from-[#4F39F6] to-[#9514FA] bg-clip-text text-transparent">DigiTools</h3>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -32,11 +32,16 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className='navbar-end gap-0.5 md:gap-4 flex items-center'>
-                    <div>
-                        <img className="cursor-pointer text-[#101727]" src={cartImg} alt="Shopping Cart Image" />
+                    <div className='flex gap-1 items-center'>
+                        <div>
+                            <img className="cursor-pointer text-[#101727]" src={cartImg} alt="Shopping Cart Image" />
+                        </div>
+                        {
+                            carts.length === 0 ? null : <p className='text-sm'>({carts.length})</p>
+                        }
                     </div>
                     <div className="">
-                        <a className="btn btn-ghost text-sm md:text-base text-[#101727]">Login</a>
+                        <a className="btn btn-ghost btn-sm md:btn-md text-xs md:text-base text-[#101727] px-2">Login</a>
                     </div>
                     <div>
                         <button className="btn btn-primary px-2 text-sm md:px-4 py-2 rounded-full bg-linear-to-t from-[#4F39F6] to-[#9514FA] text-white  md:text-base">Get Started</button>

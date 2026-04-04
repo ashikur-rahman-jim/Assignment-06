@@ -44,13 +44,13 @@ function App() {
 
   return (
     <>
-      <NavBar></NavBar>
+      <NavBar carts={carts}></NavBar>
 
       <Banner></Banner>
 
       <Stats></Stats>
 
-      <Tabs setActiveTab={setActiveTab}></Tabs>
+      <Tabs setActiveTab={setActiveTab} carts={carts}></Tabs>
 
       {activeTab === "products" ? <Suspense fallback={<h3>Loading...</h3>}>
         <Products productsPromise={productsPromise} carts={carts} setCarts={setCarts}></Products>

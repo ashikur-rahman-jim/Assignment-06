@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Tabs = ({ setActiveTab }) => {
+const Tabs = ({ setActiveTab, carts }) => {
     
 
     return (
@@ -17,7 +17,7 @@ const Tabs = ({ setActiveTab }) => {
             <div className="tabs tabs-box justify-center gap-4 mb-8 bg-gray-50">
                 <input onClick={() => setActiveTab("products")} type="radio" name="my_tabs_1" className="tab font-semibold px-5 py-2 rounded-full hover:cursor-pointer" aria-label="Products" defaultChecked />
 
-                <input onClick={() => setActiveTab("cart")} type="radio" name="my_tabs_1" className="tab font-semibold px-5 py-2 rounded-full hover:cursor-pointer" aria-label="Cart"  />
+                <input onClick={() => setActiveTab("cart")} type="radio" name="my_tabs_1" className="tab font-semibold px-5 py-2 rounded-full hover:cursor-pointer" aria-label={carts.length === 0 ? "Cart" : `Cart (${carts.length})`}  />
             </div>
         </div>
     );
