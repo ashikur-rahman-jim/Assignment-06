@@ -7,11 +7,17 @@ const ProductsCard = ({ product, carts, setCarts }) => {
     const [isSubscribed, setIsSubscribed] = useState(false);
 
     const handelSubscription = () => {
-        if (!isSubscribed) {
-        setIsSubscribed(true);
-        setCarts([...carts, product]);
-        toast.success("Item add to card")
-    }
+            setIsSubscribed(true);
+
+            const isFound = carts.find(item => item.id === product.id)
+
+            if(isFound) {
+                toast.error("Item already in cart")
+                return
+            }
+
+            setCarts([...carts, product]);
+            toast.success("Item add to card")
     }
 
     return (

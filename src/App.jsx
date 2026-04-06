@@ -44,31 +44,39 @@ function App() {
 
   return (
     <>
+      {/* NavBar */}
       <NavBar carts={carts}></NavBar>
 
+      {/* Banner */}
       <Banner></Banner>
 
+      {/* Stats */}
       <Stats></Stats>
 
+      {/* Tabs Section */}
       <Tabs setActiveTab={setActiveTab} carts={carts}></Tabs>
 
+      {/* Products Section */}
       {activeTab === "products" ? <Suspense fallback={<h3>Loading...</h3>}>
         <Products productsPromise={productsPromise} carts={carts} setCarts={setCarts}></Products>
       </Suspense> : null}
 
+      {/* Cart Section */}
       {activeTab === "cart" ? <Cart carts={carts} setCarts={setCarts}></Cart> : null}
 
-      <Suspense fallback={<h3>Loading...</h3>}>
+      {/* Steps Section */}
+      {activeTab === "cart" ? null : <Suspense fallback={<h3>Loading...</h3>}>
         <Steps stepsPromise={stepsPromise}></Steps>
-      </Suspense>
+      </Suspense>}
 
-      <Suspense fallback={<h3>Loading...</h3>}>
+      {/* Pricing Section */}
+      {activeTab === "cart" ? null : <Suspense fallback={<h3>Loading...</h3>}>
         <Pricing pricePromise={pricePromise}></Pricing>
-      </Suspense>
+      </Suspense>}
+      {activeTab === "cart" ? null : <FreeTrial></FreeTrial>}
 
-      <FreeTrial></FreeTrial>
-
-      <Footer></Footer>
+      {/* Footer Section */}
+      {activeTab === "cart" ? null : <Footer></Footer>}
 
     </>
   )

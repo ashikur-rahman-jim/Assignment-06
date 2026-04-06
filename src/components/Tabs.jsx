@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Tabs = ({ setActiveTab, carts }) => {
+    
+    const [selectedTab, setSelectedTab] = useState("available")
+
+    const handleAvailableTab = () => {
+        setActiveTab("products")
+        setSelectedTab("available")
+    }
+
+    const handleSelectedTab = () => {
+        setActiveTab("cart")
+        setSelectedTab("selected")
+    }
     
 
     return (
@@ -15,9 +27,9 @@ const Tabs = ({ setActiveTab, carts }) => {
             </div>
             {/* name of each tab group should be unique */}
             <div className="tabs tabs-box justify-center gap-4 mb-8 bg-gray-50">
-                <input onClick={() => setActiveTab("products")} type="radio" name="my_tabs_1" className="tab font-semibold px-5 py-2 rounded-full hover:cursor-pointer" aria-label="Products" defaultChecked />
+                <input onClick={handleAvailableTab} type="radio" name="my_tabs_1" className={`${selectedTab === "available" ? "bg-linear-to-t from-[#4F39F6] to-[#9514FA]" : ""} tab  font-semibold px-5 py-2 rounded-full hover:cursor-pointer`} aria-label="Products" defaultChecked />
 
-                <input onClick={() => setActiveTab("cart")} type="radio" name="my_tabs_1" className="tab font-semibold px-5 py-2 rounded-full hover:cursor-pointer" aria-label={carts.length === 0 ? "Cart" : `Cart (${carts.length})`}  />
+                <input onClick={handleSelectedTab} type="radio" name="my_tabs_1" className={`${selectedTab === "selected" ? "bg-linear-to-t from-[#4F39F6] to-[#9514FA]" : ""} tab font-semibold px-5 py-2 rounded-full hover:cursor-pointer`} aria-label={carts.length === 0 ? "Cart" : `Cart (${carts.length})`}  />
             </div>
         </div>
     );
